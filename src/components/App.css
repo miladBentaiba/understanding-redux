@@ -1,0 +1,9 @@
+.contact-item-container{
+  border: 1px solid black;
+  width: 250px;
+  text-align: center;
+}
+.contactlist{
+  display: flex;
+  flex-wrap: wrap;
+}
