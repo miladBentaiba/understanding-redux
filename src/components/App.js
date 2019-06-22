@@ -1,22 +1,16 @@
 import React, { Component } from 'react';
 import {BrowserRouter} from 'react-router-dom'
-import Routes from './routes'
+import Routes from './Routes'
 import './App.css';
 
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {  }
-  }
+export default  class App extends Component {
   render() { 
-    return ( <div className="App">
+    return ( 
+    <div className="App">
       <BrowserRouter>
         <Routes/>
       </BrowserRouter>
     </div> );
   }
 }
- 
-export default App;
-

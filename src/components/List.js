@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Item from './contactitem'
+import Item from './Item'
 import {Link} from 'react-router-dom'
 import { connect } from 'react-redux';
 
@@ -10,26 +10,22 @@ class List extends Component {
         this.state = {  }
     }
     render() { 
-        return ( <div>
+        return ( 
+        <div>
             <h1>Contact List</h1>
             <div className="contactlist">
-                {
-                    this.props.contred.map((el,i)=><Item key={i} item={el} />)
-                }
+                { this.props.contracts.map((el,i)=><Item key={i} item={el} />) }
             </div>
             <Link to="/">
                 <button >Home</button>
-            </Link>
-            
-            
+            </Link> 
         </div> );
     }
 }
 
-
 const mapStateToProps=(state)=>{
     return{
-        contred: state.reducerContacts
+        contracts: state.reducerContacts
     }
 }
 

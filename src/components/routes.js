@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import {Route} from 'react-router-dom'
-import Home from './home'
-import List from './contactlist'
-import Add from './addcontact'
-import Edit from './editcontact'
+import Home from './Home'
+import List from './List'
+import Add from './Add'
+import Edit from './Edit'
 
-class Routes extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {  }
-    }
+export default  class Routes extends Component {
     render() { 
         return ( <div>
             <Route exact path='/' component={Home} />
@@ -19,5 +15,3 @@ class Routes extends Component {
         </div> );
     }
 }
- 
-export default Routes;

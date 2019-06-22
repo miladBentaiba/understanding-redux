@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
 
-class Home extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {  }
-    }
+export default class Home extends Component {
     render() { 
-        return ( <div>
+        return ( 
+        <div>
             <h1>Home Page</h1>
             <Link to='/contacts'>
                 <button>Contact List</button>
@@ -18,5 +15,3 @@ class Home extends Component {
         </div> );
     }
 }
- 
-export default Home;
