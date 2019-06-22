@@ -2,15 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 
+
 class Add extends Component {
     handleChange = (event) => { this.setState({ [event.target.name]: event.target.value }) }
 
-    add = () => { this.props.addReduc({ ...this.state, id: Math.random() * 1000000 + '' }) }
-
     render() {
         return (
-        <div>
-            <center>
+            <div>
                 <h2>Add contact</h2>
                 <h4>name :</h4>
                 <input type='text' name='name' onChange={this.handleChange} />
@@ -20,10 +18,9 @@ class Add extends Component {
                 <input type='email' name='email' onChange={this.handleChange} />
                 <br />
                 <Link to='/contacts'>
-                    <button onClick={this.add}>Add</button>
+                    <button onClick={() => { this.props.addReduc({ ...this.state, id: Math.random() * 1000000 + '' }) }}>Add</button>
                 </Link>
-            </center>
-        </div>);
+            </div>);
     }
 }
 

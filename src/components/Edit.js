@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 
+
 class Edit extends Component {
     constructor(props) {
         super(props);
@@ -10,8 +11,6 @@ class Edit extends Component {
     handleChange = (event) => { this.setState({ [event.target.name]: event.target.value }) }
 
     componentDidMount() { this.setState({ ...this.props.contacts.filter((el) => el.id === this.props.cin)[0] }) }
-
-    edit = () => { this.props.editRed(this.state) }
 
     render() {
         return (
@@ -25,7 +24,7 @@ class Edit extends Component {
                 <input type='email' name='email' onChange={this.handleChange} value={this.state.email} />
                 <br />
                 <Link to='/contacts'>
-                    <button onClick={this.edit}>Edit</button>
+                    <button onClick={() => { this.props.editRed(this.state) }}>Edit</button>
                 </Link>
             </div>);
     }

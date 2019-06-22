@@ -10,8 +10,8 @@ let initialstate=[
 const reducerContacts=(state=initialstate, action)=>{
     switch(action.type){
         case 'ADD_CONTACT' : return state.concat(action.newcontact)
-        case 'REMOVE_CONTACT' : return state.filter((el,i)=>el.id!==action._id)
-        case 'EDIT_CONTACT' : return state.map((el,i)=>el.id===action.editcontact.id ? action.editcontact : el)
+        case 'REMOVE_CONTACT' : return state.filter((el)=>el.id!==action._id)
+        case 'EDIT_CONTACT' : return state.map((el)=>el.id===action.editcontact.id ? action.editcontact : el)
         default : return state
     }
 }
