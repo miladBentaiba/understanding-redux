@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
+import axios from 'axios'
 
+// const apiUrl = 'http://lacalhost:3000'
 
 class Add extends Component {
     handleChange = (event) => { this.setState({ [event.target.name]: event.target.value }) }
@@ -26,13 +28,33 @@ class Add extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addReduc: newcontact => {
-            dispatch({
-                type: 'ADD_CONTACT',
-                newcontact
-            })
-        }
+        addReduc: newcontact => axios.post('http://localhost:3000/new_contact', 
+            {...newcontact}, 
+            {headers: {"Access-Control-Allow-Origin": "*", crossDomain: true}})
+        .then(response => {
+            console.log('then', response.config.data)
+          dispatch({
+            type: 'ADD_CONTACT',
+            newcontact: JSON.parse(response.config.data)
+          })
+          return JSON.parse(response.config.data)
+        })
+        .catch(error => {
+            console.log('error from user', error)
+            throw(error);          
+        })
     }
 }
+
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         addReduc: newcontact => {
+//             dispatch({
+//                 type: 'ADD_CONTACT',
+//                 newcontact
+//             })
+//         }
+//     }
+// }
 
 export default connect(null, mapDispatchToProps)(Add);

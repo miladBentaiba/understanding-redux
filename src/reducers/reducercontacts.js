@@ -1,3 +1,4 @@
+
 let initialstate=[
     {
         id: '1',
@@ -6,6 +7,7 @@ let initialstate=[
         email: 'asma@hotmail.fr'
     }
 ]
+
 
 const reducerContacts=(state=initialstate, action)=>{
     switch(action.type){

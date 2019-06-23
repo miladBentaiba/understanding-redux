@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom'
 class Item extends Component {
     render() {
         const { item } = this.props
-
         return (
             <div className="contact-item-container">
+              
                 <h4>Name: {item.name}</h4>
                 <h4>Phone: {item.phone}</h4>
                 <h4>Email: {item.email}</h4>
